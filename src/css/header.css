@@ -1,0 +1,107 @@
+
+ 
+ header {
+    height: 60px;
+    padding: 10px max(20px, calc((100% - var(--largura-max)) / 2));
+    border-bottom: 2px solid #cec6d6;
+    position: relative;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin-inline: auto;
+    height: 100%;
+    
+}
+
+.nav-container {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+    z-index: 1;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background-color: #FFF9F3;
+    border: 1px solid #e9e1d9;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.nav-container,
+.nav-container .nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-container .nav a {
+    color: #493542;
+    transition: color 0.3s ease,
+                transform 0.3s ease;
+}
+
+.nav-container .nav a:hover {
+    color: #9b708c;
+    transform: translateY(-1px);
+} 
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: block;
+    width: 30px;
+    cursor: pointer;
+}
+
+.menu-icon img {
+    transition: filter 0.3s ease-in-out;
+    filter: brightness(0) saturate(100%) invert(22%) sepia(10%) saturate(965%) hue-rotate(268deg) brightness(98%) contrast(97%);
+}
+
+.menu-icon:hover img {
+    filter: brightness(0) saturate(100%) invert(54%) sepia(18%) saturate(758%) hue-rotate(298deg) brightness(95%) contrast(87%);
+    
+}
+
+.menu-toggle:checked ~ .nav-container {
+    transform: translateX(0);
+}
+
+.btn-header {
+    align-items: normal;
+}
+
+@media (min-width: 1280px) {
+    .nav-container {
+        position: static;
+        transform: none;
+        transition: none;
+        padding: 0;
+        border: none;
+        background: none;
+        flex: 1;
+        flex-direction: row;
+        align-items: center;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .nav-container,
+    .nav-container .nav {
+        flex-direction: row;
+        gap: 2rem;
+        margin: 0 auto;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+}
